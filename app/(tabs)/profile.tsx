@@ -99,7 +99,7 @@ export default function ProfileTab() {
               {/* Earned Badge 1 */}
               <View className="items-center flex-1 mx-1">
                 <View className="w-16 h-16 rounded-full items-center justify-center mb-2" style={{
-                  background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)'
+                  backgroundColor: '#fbbf24'
                 }}>
                   <Text className="text-2xl">🥇</Text>
                 </View>
@@ -109,7 +109,7 @@ export default function ProfileTab() {
               {/* Earned Badge 2 */}
               <View className="items-center flex-1 mx-1">
                 <View className="w-16 h-16 rounded-full items-center justify-center mb-2" style={{
-                  background: 'linear-gradient(135deg, #cd7c2f 0%, #a16207 100%)'
+                  backgroundColor: '#cd7c2f'
                 }}>
                   <Text className="text-2xl">🥉</Text>
                 </View>
@@ -119,7 +119,7 @@ export default function ProfileTab() {
               {/* Earned Badge 3 */}
               <View className="items-center flex-1 mx-1">
                 <View className="w-16 h-16 rounded-full items-center justify-center mb-2" style={{
-                  background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)'
+                  backgroundColor: '#8b5cf6'
                 }}>
                   <Text className="text-2xl">💎</Text>
                 </View>

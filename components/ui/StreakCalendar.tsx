@@ -7,6 +7,20 @@ interface StreakCalendarProps {
   data?: { [key: string]: boolean }; // date string -> has activity (true/false)
 }
 
+interface CalendarDay {
+  date: string;
+  dayOfWeek: number;
+  month: number;
+  dayOfMonth: number;
+  hasActivity: boolean;
+  isToday: boolean;
+}
+
+interface MonthLabel {
+  month: string;
+  weekIndex: number;
+}
+
 const { width: screenWidth } = Dimensions.get('window');
 
 export function StreakCalendar({ currentStreak = 23, data = {} }: StreakCalendarProps) {
@@ -72,8 +86,8 @@ export function StreakCalendar({ currentStreak = 23, data = {} }: StreakCalendar
   const calendarData = generateCalendarData();
   
   // Group days by weeks, starting from Monday
-  const weeks = [];
-  let currentWeek = [];
+  const weeks: (CalendarDay | null)[][] = [];
+  let currentWeek: (CalendarDay | null)[] = [];
   
   calendarData.forEach((day, index) => {
     // Adjust for Monday start (0 = Sunday, 1 = Monday, etc.)
@@ -103,11 +117,11 @@ export function StreakCalendar({ currentStreak = 23, data = {} }: StreakCalendar
   const getMonthLabels = () => {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const labels = [];
+    const labels: MonthLabel[] = [];
     let currentMonth = -1;
     
     weeks.forEach((week, weekIndex) => {
-      const firstValidDay = week.find(day => day !== null);
+      const firstValidDay = week.find((day: CalendarDay | null) => day !== null);
       if (firstValidDay && firstValidDay.month !== currentMonth) {
         currentMonth = firstValidDay.month;
         labels.push({
@@ -170,7 +184,7 @@ export function StreakCalendar({ currentStreak = 23, data = {} }: StreakCalendar
           <View style={styles.grid}>
             {weeks.map((week, weekIndex) => (
               <View key={weekIndex} style={styles.week}>
-                {week.map((day, dayIndex) => (
+                {week.map((day: CalendarDay | null, dayIndex: number) => (
                   <View
                     key={`${weekIndex}-${dayIndex}`}
                     style={[
