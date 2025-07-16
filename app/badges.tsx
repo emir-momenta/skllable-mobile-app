@@ -99,7 +99,7 @@ export default function BadgesScreen() {
   const earnedBadges = allBadges.filter(badge => badge.earned);
   const lockedBadges = allBadges.filter(badge => !badge.earned);
 
-  const getBadgeGradient = (type: string, earned: boolean) => {
+  const getBadgeGradient = (type: string, earned: boolean): readonly [string, string, ...string[]] => {
     if (!earned) {
       return ['#e5e7eb', '#d1d5db']; // Gray gradient for locked badges
     }
