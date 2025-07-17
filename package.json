@@ -3,11 +3,13 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "private": true,
+
   "scripts": {
     "dev": "EXPO_NO_TELEMETRY=1 expo start",
     "build:web": "expo export --platform web",
     "lint": "expo lint"
   },
+
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.1",
     "@expo/vector-icons": "^14.1.0",
@@ -42,11 +44,21 @@
     "react-native-web": "^0.20.0",
     "react-native-webview": "13.13.5"
   },
+
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/plugin-transform-runtime": "^7.28.0",
     "@types/react": "~19.0.10",
     "tailwindcss": "3.3.2",
     "typescript": "~5.8.3"
+  },
+
+  /* --------------  PIN BABEL RUNTIME HERE -------------- */
+  "overrides": {
+    "@babel/runtime": "7.27.6"
+  },
+  "resolutions": {
+    "@babel/runtime": "7.27.6"
   }
+  /* ----------------------------------------------------- */
 }
