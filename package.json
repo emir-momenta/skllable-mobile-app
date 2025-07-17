@@ -53,12 +53,10 @@
     "typescript": "~5.8.3"
   },
 
-  /* --------------  PIN BABEL RUNTIME HERE -------------- */
   "overrides": {
     "@babel/runtime": "7.27.6"
   },
   "resolutions": {
     "@babel/runtime": "7.27.6"
   }
-  /* ----------------------------------------------------- */
 }
